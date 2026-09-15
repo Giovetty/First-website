@@ -1,45 +1,74 @@
-:root{
-    --main-color:rgb(248, 85, 161);
+:root {
+    /* Define primary CSS variables */
+    --main-bg: rgb(241, 146, 191);
+    --box-bg-start: rgb(227, 85, 151);
+    --box-bg-end: rgb(255, 192, 203);
+    --box-glow: rgba(234, 49, 173, 0.6);
 }
 
-/* Enable scrolling for the entire page if content overflows */
+/* 1. Changing the overall background color using CSS Variables */
 body {
-    overflow: auto; /* or overflow: scroll; */
+    overflow: auto;
     font-family: 'Roboto', sans-serif;
-    background-color: var (--main-color);
+    background-color: var(--main-bg); /* Using the variable here */
+    margin: 20px;
 }
 
-/* Center the main heading <h1> */
+
+/* General Typography & Structure */
 h1 {
     text-align: center;
 }
 
-/* Underline the sub-heading <h2> */
 h2 {
     text-decoration: underline;
 }
 
-/* Apply Google Fonts specifically to the paragraph <p> */
-p {
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Set image opacity (not invisible, not 100% opaque) */
 .styled-image {
     opacity: 0.7;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Add a dotted colored border to the bottom section container */
 .bottom-section {
     border: 3px dotted rgb(234, 49, 173);
     padding: 15px;
     margin-top: 15px;
 }
-.box{
-    background-color: rgb(227, 85, 151);
-    width: 100px ;
-    height: 100px;
-    margin:auto ;
-    padding: auto ;
 
+/* 2. Animated Box Component */
+.box {
+    /* Initial setup using variables */
+    background-color: var(--box-bg-start);
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+
+    /* Attach the keyframe animation */
+    animation: pulseAndChange 3s infinite alternate ease-in-out;
+}
+
+/* 3. Keyframe Animation using CSS Variables */
+@keyframes pulseAndChange {
+    0% {
+        background-color: var(--box-bg-start);
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0px var(--box-glow);
+    }
+    50% {
+        /* Smoothly shifts color and slightly expands */
+        background-color: var(--main-bg);
+        transform: scale(1.1) rotate(3deg);
+    }
+    100% {
+        /* Changes color using another variable, scales up, and adds glow */
+        background-color: var(--box-bg-end);
+        transform: scale(1.2) rotate(-3deg);
+        box-shadow: 0 0 15px var(--box-glow);
+    }
 }
