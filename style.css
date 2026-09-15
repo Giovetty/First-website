@@ -1,7 +1,12 @@
+:root{
+    --main-color:rgb(248, 85, 161);
+}
+
 /* Enable scrolling for the entire page if content overflows */
 body {
     overflow: auto; /* or overflow: scroll; */
     font-family: 'Roboto', sans-serif;
+    background-color: var (--main-color);
 }
 
 /* Center the main heading <h1> */
@@ -26,7 +31,15 @@ p {
 
 /* Add a dotted colored border to the bottom section container */
 .bottom-section {
-    border: 3px dotted blue;
+    border: 3px dotted rgb(234, 49, 173);
     padding: 15px;
     margin-top: 15px;
+}
+.box{
+    background-color: rgb(227, 85, 151);
+    width: 100px ;
+    height: 100px;
+    margin:auto ;
+    padding: auto ;
+
 }
